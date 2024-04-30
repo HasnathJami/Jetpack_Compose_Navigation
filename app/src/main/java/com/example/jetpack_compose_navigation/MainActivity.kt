@@ -5,6 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.example.jetpack_compose_navigation.screen.DashboardScreen
 import com.example.jetpack_compose_navigation.screen.HomeScreen
 import com.example.jetpack_compose_navigation.ui.theme.Jetpack_Compose_NavigationTheme
 
@@ -35,5 +41,26 @@ fun DefaultPreview() {
     Jetpack_Compose_NavigationTheme {
         //DashboardScreen()
         HomeScreen()
+    }
+}
+
+@Composable
+fun App() {
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "dashboard") {
+        composable("dashboard") {
+            DashboardScreen() { value ->
+                navController.navigate("home/${value}")
+            }
+        }
+        composable(
+            "home/{value}",
+            arguments = listOf(
+                navArgument("value") {
+                    type = NavType.StringType
+                })
+        ) {
+            HomeScreen()
+        }
     }
 }

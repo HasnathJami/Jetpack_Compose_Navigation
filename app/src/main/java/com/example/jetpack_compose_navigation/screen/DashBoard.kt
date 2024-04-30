@@ -26,7 +26,7 @@ import com.example.jetpack_compose_navigation.utils.UiUtils
 
 
 @Composable
-fun DashboardScreen() {
+fun DashboardScreen(onClick : (value:String) -> Unit) {
     val context = LocalContext.current
 
     Column(
@@ -105,6 +105,7 @@ fun DashboardScreen() {
                 modifier = Modifier
                     .weight(1f),
                 onClick = {
+                    onClick(text)
                     UiUtils.showToast(context, "submitted")
                 },
                 colors = ButtonDefaults.buttonColors(
