@@ -9,6 +9,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,7 +27,7 @@ import com.example.jetpack_compose_navigation.utils.UiUtils
 
 
 @Composable
-fun DashboardScreen(onClick : (value:String) -> Unit) {
+fun DashboardScreen(onClick : (String) -> Unit) {
     val context = LocalContext.current
 
     Column(
@@ -47,7 +48,7 @@ fun DashboardScreen(onClick : (value:String) -> Unit) {
             modifier = Modifier.fillMaxWidth()
         )
         UiUtils.addSpace(spaceAmount = R.dimen.scale_16dp)
-        var text by remember {
+        var text by rememberSaveable {
             mutableStateOf("")
         }
         TextField(

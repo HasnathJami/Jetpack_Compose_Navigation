@@ -1,7 +1,11 @@
 package com.example.jetpack_compose_navigation.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(value: String?) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -25,7 +29,7 @@ fun HomeScreen() {
 
     ) {
         Text(
-            text = "Home Screen",
+            text = value?:"",
             color = Color.Black,
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
@@ -48,25 +52,25 @@ fun HomeScreen() {
                 .height(18.dp)
             //  .weight(1f)
         )
-        Text(
-
-            text = "Home Screen",
-            color = Color.Black,
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Bold,
-            fontFamily = FontFamily.Monospace,
-            textDecoration = TextDecoration.Underline,
-            letterSpacing = 1.sp,
-            //lineHeight = 10.sp
-//            style = TextStyle(
-//                color = Color.Red,
-//                fontSize = 50.sp,
-//                fontWeight = FontWeight.Thin,
+//        Text(
 //
-//            )
-            modifier = Modifier
-                .alpha(0.5f)
-            //.weight(1f)
-        )
+//            text = "Home Screen",
+//            color = Color.Black,
+//            fontSize = 18.sp,
+//            fontWeight = FontWeight.Bold,
+//            fontFamily = FontFamily.Monospace,
+//            textDecoration = TextDecoration.Underline,
+//            letterSpacing = 1.sp,
+//            //lineHeight = 10.sp
+////            style = TextStyle(
+////                color = Color.Red,
+////                fontSize = 50.sp,
+////                fontWeight = FontWeight.Thin,
+////
+////            )
+//            modifier = Modifier
+//                .alpha(0.5f)
+//            //.weight(1f)
+//        )
     }
 }
