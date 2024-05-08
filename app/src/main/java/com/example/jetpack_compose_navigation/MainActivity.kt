@@ -3,8 +3,15 @@ package com.example.jetpack_compose_navigation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -25,6 +32,7 @@ class MainActivity : ComponentActivity() {
                 // DashboardScreen()
                 App()
                 //     }
+                //testScreen()
             }
         }
     }
@@ -41,9 +49,39 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     Jetpack_Compose_NavigationTheme {
-        //DashboardScreen()
         App()
+        //testScreen()
     }
+}
+
+@Composable
+fun testScreen() {
+
+    ConstraintLayout(modifier = Modifier.fillMaxSize()) {
+        val (upperText, submitButton) = createRefs()
+        
+        Text(
+            text = "Jami Chowdhury",
+            //modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.constrainAs(upperText) {
+                top.linkTo(parent.top)
+                bottom.linkTo(parent.bottom)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            }
+        )
+        Button(
+            onClick = {},
+            modifier = Modifier.constrainAs(submitButton) {
+                top.linkTo(upperText.bottom)
+                start.linkTo(upperText.start)
+                end.linkTo(upperText.end)
+            }
+        ) {
+            Text(text = "Submit")
+        }
+    }
+
 }
 
 @Composable
