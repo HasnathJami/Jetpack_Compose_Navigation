@@ -1,2 +1,2 @@
 # Jetpack_Compose_Navigation
-All about Jetpack Compose Navigation
+Everything about Jetpack Compose Navigation from Beginner to Advance (S-Sn)
