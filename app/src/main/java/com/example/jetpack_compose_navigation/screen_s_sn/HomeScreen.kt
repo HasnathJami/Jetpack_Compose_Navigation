@@ -26,7 +26,9 @@ fun HomeScreen(navController: NavHostController) {
             fontSize = MaterialTheme.typography.h3.fontSize,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.clickable {
-                navController.navigate(route = Screen.Detail.route)
+//                navController.navigate(route = Screen.Detail.passNameAndId(id = 100, name = "Jami"))
+                navController.navigate(route = Screen.Detail.passNameAndId())
+//                navController.navigate(route = "detail_screen?id={id}")
             }
         )
     }
