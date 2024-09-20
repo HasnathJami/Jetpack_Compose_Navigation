@@ -1,23 +1,24 @@
-package com.example.jetpack_compose_navigation.navigation
+package com.example.jetpack_compose_navigation.navigation.nav_graph
 
 import android.util.Log
-import androidx.compose.runtime.Composable
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import androidx.navigation.navigation
 import com.example.jetpack_compose_navigation.screen_s_sn.DetailsScreen
 import com.example.jetpack_compose_navigation.screen_s_sn.HomeScreen
 import com.example.jetpack_compose_navigation.utils.utils_s_sn.DETAIL_ARGUMENT_KEY
 import com.example.jetpack_compose_navigation.utils.utils_s_sn.DETAIL_ARGUMENT_KEY2
+import com.example.jetpack_compose_navigation.utils.utils_s_sn.HOME_ROUTE
 import com.example.jetpack_compose_navigation.utils.utils_s_sn.Screen
 
-@Composable
-fun SetupNavGraph(navController: NavHostController) {
-    NavHost(
-        navController = navController,
-        startDestination = Screen.Home.route
+fun NavGraphBuilder.homeNavGraph(navController: NavHostController) {
+
+    navigation(
+        startDestination = Screen.Home.route,
+        route = HOME_ROUTE,
     ) {
         composable(
             route = Screen.Home.route

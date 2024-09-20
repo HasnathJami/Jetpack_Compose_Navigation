@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.jetpack_compose_navigation.navigation.SetupNavGraph
+import com.example.jetpack_compose_navigation.navigation.nav_graph.SetupNavGraph
 import com.example.jetpack_compose_navigation.ui.theme.Jetpack_Compose_NavigationTheme
 
 class MainActivitySSn : ComponentActivity() {
