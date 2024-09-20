@@ -20,13 +20,13 @@ import com.example.jetpack_compose_navigation.navigation.nav_graph.BottomNavGrap
 import com.example.jetpack_compose_navigation.utils.utils_s_sn.BottomBarScreen
 
 @Composable
-fun MainScreen() {
-    val navController = rememberNavController()
+fun MainScreen(navController: NavHostController = rememberNavController()) {
     Scaffold(
         bottomBar = {
             BottomBar(navController = navController)
         }
     ) {
+        //Home NAV GRAPH
         BottomNavGraph(navController = navController)
     }
 }
@@ -42,15 +42,19 @@ fun BottomBar(navController: NavHostController) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
 
-    BottomNavigation {
-        screens.forEach { screen ->
-            AddItem(
-                screen = screen,
-                currentDestination = currentDestination,
-                navController = navController
-            )
+    val bottomBarDestination = screens.any { it.route == currentDestination?.route }
+    if (bottomBarDestination) {
+        BottomNavigation {
+            screens.forEach { screen ->
+                AddItem(
+                    screen = screen,
+                    currentDestination = currentDestination,
+                    navController = navController
+                )
+            }
         }
     }
+
 }
 
 @Composable
@@ -66,11 +70,13 @@ fun RowScope.AddItem(
             it.route == screen.route
         } == true,
         unselectedContentColor = LocalContentColor.current.copy(alpha = ContentAlpha.disabled),
-        onClick = { navController.navigate(screen.route){
-            popUpTo(navController.graph.findStartDestination().id)
+        onClick = {
+            navController.navigate(screen.route) {
+                popUpTo(navController.graph.findStartDestination().id)
 
-            launchSingleTop = true
-        } },
+                launchSingleTop = true
+            }
+        },
         icon = {
             Icon(
                 imageVector = screen.icon,

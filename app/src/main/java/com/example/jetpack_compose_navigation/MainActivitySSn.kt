@@ -6,7 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
-import com.example.jetpack_compose_navigation.screen_s_sn.bottom_nav_screen.MainScreen
+import androidx.navigation.compose.rememberNavController
+import com.example.jetpack_compose_navigation.navigation.nav_graph.RootNavigationGraph
 import com.example.jetpack_compose_navigation.ui.theme.Jetpack_Compose_NavigationTheme
 
 class MainActivitySSn : ComponentActivity() {
@@ -16,9 +17,10 @@ class MainActivitySSn : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Jetpack_Compose_NavigationTheme {
-//                navController = rememberNavController()
+                navController = rememberNavController()
 //                SetupNavGraph(navController = navController)
-                MainScreen()
+//                MainScreen()
+                RootNavigationGraph(navController = navController)
             }
         }
     }

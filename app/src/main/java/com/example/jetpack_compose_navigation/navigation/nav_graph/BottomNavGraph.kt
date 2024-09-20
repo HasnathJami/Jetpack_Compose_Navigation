@@ -11,9 +11,13 @@ import com.example.jetpack_compose_navigation.utils.utils_s_sn.BottomBarScreen
 
 @Composable
 fun BottomNavGraph(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = BottomBarScreen.Home.route) {
+    NavHost(
+        navController = navController,
+        startDestination = BottomBarScreen.Home.route,
+        route = Graph.HOME
+    ) {
         composable(route = BottomBarScreen.Home.route) {
-            HomeScreen()
+            HomeScreen(navController = navController)
         }
         composable(route = BottomBarScreen.Profile.route) {
             ProfileScreen()
@@ -21,5 +25,6 @@ fun BottomNavGraph(navController: NavHostController) {
         composable(route = BottomBarScreen.Settings.route) {
             SettingsScreen()
         }
+        detailsNavGraph(navController = navController)
     }
 }

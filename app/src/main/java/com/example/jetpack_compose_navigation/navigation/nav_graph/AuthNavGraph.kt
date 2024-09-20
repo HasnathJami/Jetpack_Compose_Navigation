@@ -6,14 +6,17 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.example.jetpack_compose_navigation.screen_s_sn.body_screen.LoginScreen
 import com.example.jetpack_compose_navigation.screen_s_sn.body_screen.SignUpScreen
-import com.example.jetpack_compose_navigation.utils.utils_s_sn.AUTHENTICATION_ROUTE
 import com.example.jetpack_compose_navigation.utils.utils_s_sn.Screen
 
 
 fun NavGraphBuilder.authNavGraph(navController: NavHostController) {
-    navigation(startDestination = Screen.Login.route, route = AUTHENTICATION_ROUTE) {
+    navigation(startDestination = Screen.Login.route, route = Graph.AUTHENTICATION) {
         composable(route = Screen.Login.route) {
-            LoginScreen(navController = navController)
+            LoginScreen(navController = navController) {
+                navController.popBackStack()
+                navController.navigate(Graph.HOME)
+
+            }
         }
 
         composable(route = Screen.SignUp.route) {
@@ -21,4 +24,9 @@ fun NavGraphBuilder.authNavGraph(navController: NavHostController) {
         }
 
     }
+}
+
+sealed class AuthScreen(val route: String) {
+    object Login : AuthScreen(route = "LOGIN")
+    object Signup : AuthScreen(route = "SIGN_UP")
 }
