@@ -1,4 +1,4 @@
-package com.example.jetpack_compose_navigation.screen_s_sn
+package com.example.jetpack_compose_navigation.screen_s_sn.body_screen
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement

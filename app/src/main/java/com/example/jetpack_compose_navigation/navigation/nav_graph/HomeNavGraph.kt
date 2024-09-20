@@ -7,8 +7,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import androidx.navigation.navigation
-import com.example.jetpack_compose_navigation.screen_s_sn.DetailsScreen
-import com.example.jetpack_compose_navigation.screen_s_sn.HomeScreen
+import com.example.jetpack_compose_navigation.screen_s_sn.body_screen.DetailsScreen
+import com.example.jetpack_compose_navigation.screen_s_sn.body_screen.HomeScreen
 import com.example.jetpack_compose_navigation.utils.utils_s_sn.DETAIL_ARGUMENT_KEY
 import com.example.jetpack_compose_navigation.utils.utils_s_sn.DETAIL_ARGUMENT_KEY2
 import com.example.jetpack_compose_navigation.utils.utils_s_sn.HOME_ROUTE

@@ -1,4 +1,4 @@
-package com.example.jetpack_compose_navigation.screen_s_sn
+package com.example.jetpack_compose_navigation.screen_s_sn.body_screen
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.jetpack_compose_navigation.utils.utils_s_sn.HOME_ROUTE
 import com.example.jetpack_compose_navigation.utils.utils_s_sn.Screen
 
 @Composable
