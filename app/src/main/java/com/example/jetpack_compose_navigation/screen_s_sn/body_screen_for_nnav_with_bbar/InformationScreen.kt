@@ -11,9 +11,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.example.jetpack_compose_navigation.model.User
 
 @Composable
-fun InformationScreen(onClick: () -> Unit) {
+fun InformationScreen(onClick: (user:User) -> Unit) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -25,7 +26,8 @@ fun InformationScreen(onClick: () -> Unit) {
             fontSize = 16.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.clickable {
-                onClick()
+                val user = User("Hasnath", 27)
+                onClick(user)
             }
         )
     }
